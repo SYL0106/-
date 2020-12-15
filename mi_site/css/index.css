@@ -1,0 +1,357 @@
+body{
+	font: 14px/1.5 Helvetica Neue,Helvetica,Arial,Microsoft Yahei,Hiragino Sans GB,Heiti SC,WenQuanYi Micro Hei,sans-serif;
+	color: #333;
+	min-width: 1226px;
+}
+/* 小米顶部栏 */
+/* 1. topBar:设置样式高度40px;
+		 2. container:1226px宽度,设置居中
+		 3. topBar下方div设置不同的浮动样式(因为设置了固定告诉,所以未清除浮动)
+		 4. topBar .shop设置左边距,设置固定宽度,并将文本水平垂直居中
+		 5. topBar sapn设置边距以便合理分布内容项list,并设置合理颜色
+		 6. topBar a标签设置未行块元素,垂直居中,并设置合理颜色;且设置鼠标悬浮效果(字体颜色加深) */
+.topBar{
+	width: 100%;
+	height: 40px;
+	background-color: #333333;
+
+}
+.container{
+	width: 1226px;
+	height: 100%;
+	margin: 0 auto;
+}
+.topBar .topBar_list{
+	float: left;
+}
+.topBar .login{
+	float: right;
+
+}
+.topBar .shop{
+	margin-left: 15px;
+	width: 120px;
+	float: right;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	background-color: #424242;
+}
+.topBar .shop>a{
+	width: 130px;
+	height: 40px;
+	display: inline-block;
+	font-size: 12px;
+	/* line-height: 40px; */
+	/* margin-top: ; */
+	float: right;
+}
+.topBar .shop>a>.iconfont{
+	display: inline-block;
+	line-height: 40px;
+	font-size:18px; 
+	color: #B0B0B0;
+}
+.topBar .shop>a>.gwc{
+	display: inline-block;
+	height: 35px;
+
+	line-height: 40px;
+	font-size:12px; 
+	color: #B0B0B0;
+}
+.topBar a{
+	color: #B0B0B0;
+	font-size: 12px;
+	display: inline-block;
+	line-height: 40px;	
+}
+.topBar a:hover{
+	color: #fff;
+}
+
+
+.topBar span{
+	color: #424242;
+	margin: 0 0.3em;
+}
+/* 小米顶部栏end */
+
+/* 小米导航栏开始 */
+/* 
+ 1. logo:注意A标签的大小，设置行块元素，以便可全部点击；
+ 2. search-list:设置元素<li>的左浮动，以及动图位置
+ 3. 设置右侧表单的大小，注意元素定位
+ */
+.head .container{
+	height: 100px;
+}
+.head .site_logo{
+	float: left;
+	width: 56px;
+	margin: 22px;	
+}
+.head .site_logo a{
+	display: block;
+	width: 56px;
+	height: 56px;
+}
+.head .sitle_list{
+	float: left;
+}
+.head .sitle_list ul{
+	padding: 30px;
+	width: 820px;
+	height: 88px;
+	padding: 12px 0 0 5px;
+	font-size: 16px;
+}
+.head .sitle_list>ul>li{
+	float: left;
+}
+.head .sitle_list>ul>li>a{
+	display: inline-block;
+	padding: 26px 9px 38px;
+	color: #333;
+}
+.head .sitle_list>ul>li>a:hover{
+	color: #FF6700;
+}
+.head .sitle_list .doodle{
+	position: relative;
+	z-index:3;
+	/* 同父现象：
+	1. 内容栏sapn标签也设置相对定位，父元素等级相同，使得导航栏左侧列表被覆盖；
+	*/
+}
+.head .sitle_list .doodle a{
+	padding: 0;
+}
+.head .sitle_list .doodle .site_shop_list{
+	width: 234px;
+	height: 460px;
+	background-color:  rgba(88,88,88,.6);
+	position: absolute;
+	top: 88px;
+	left: -105px;
+}
+.head .sitle_list .doodle .site_shop_list>ul{
+	width: 234px;
+	height: 420px;
+	padding: 20px 0;
+}
+.head .sitle_list .doodle .site_shop_list>ul>li{
+	/* float: none; */
+	height: 42px;
+	position: relative;
+}
+.head .sitle_list .doodle .site_shop_list>ul>li>.iconfont{
+	font-size: 14px;
+}
+.head .sitle_list .doodle .site_shop_list>ul>li:hover{
+	background-color: #FF6700;
+}
+.head .sitle_list .doodle .site_shop_list>ul>li>span{
+	position: absolute;
+	top: 13px;
+	left: 189px;
+	font-size: 22px;
+	line-height: 22px;
+	color: #fff;
+}
+
+.head .sitle_list .doodle .site_shop_list>ul>li>a{
+	display: block;
+	height: 42px;
+	line-height: 42px;
+	padding-left: 30px;
+	font-size: 14px;
+	color: #fff;
+}
+
+.head .site_search{
+	float: right;
+	width: 250px;
+	margin-top: 25px;
+	position: relative;
+
+}
+.head .site_search form{
+	height:50px;
+	width:250px;	
+}
+.head .site_search form .search_content{
+	float: left;
+	width: 174px;
+	height: 48px;
+	border: 1px solid #e0e0e0;
+	font-size: 14px;
+	padding: 0 10px; 
+}
+.head .site_search form .search_btn{
+	font:iconfont;
+	/* width= 250-174-1*2*/
+	width:51px;
+	height:50px;
+	border: 1px solid #e0e0e0;
+	padding: 0;
+	float: left;
+	margin-left: -1px;
+}
+.head .site_search form .search_word{
+	position: absolute;
+	font-size: 14px;
+	top: 14px;
+	right: 80px;
+}
+.head .site_search form .search_word a{
+	display: inline-block;
+	margin-left: 3px;
+	padding: 1px 5px;
+	background-color: #eee;
+	color: #757575;
+}
+.head .site_search form .search_word a:hover{
+	background-color: #FF6700;
+}
+/* 小米导航栏end */
+
+/* 小米站点内容区域start */
+/* 
+	1. 照片大小设置
+	2. 侧边栏位置
+ */
+.content .site_slider{
+	position: relative;
+	z-index:2;
+	widht:1226px;
+	height: 460px;
+}
+.content .site_slider>a img{
+	width: 1226px;
+	height: 460px;
+}
+.content .site_slider>span{
+	position: absolute;
+	top:50%;
+	/* left: 0; */
+	width:40px;
+	height: 69px;
+	margin-top:-35px;
+	background:url(../img/icon-slides.png) no-repeat 0 0;
+	cursor:pointer;
+}
+.content .site_slider>span.prev{
+	background-position: -83px 0;
+	left:234px;
+}
+.content .site_slider>span.prev:hover{
+	background-position: 0 0;
+	
+}
+.content .site_slider>span.next{
+	background-position: -124px 0;
+	right:0;
+}
+.content .site_slider>span.next:hover{
+	background-position: -41px 0;
+}
+.content .site_slider>.site_item{
+		position: absolute;
+		width: 200px;
+		height:30px;
+		/* background-color: green; */
+		bottom:20px;
+		right:30px;
+		line-height: 30px;
+		text-align:right;
+}
+.content .site_slider>.site_item>span{
+	width:6px;
+	height: 6px;
+	margin: 5px 3px;
+	cursor:pointer;
+	display:inline-block;
+	background-color: rgba(0,0,0,0.5);
+	border: solid 2px;
+	border-color: rgba(255,255,255,0.2)
+	;
+	border-radius: 6px;
+}
+.content .site_slider>.site_item>span:hover{
+	background-color: rgba(255,255,255,0.7);
+	border-color: rgba(0,0,0,0.6)
+}
+	/* 向导列表 */
+.content .content_sub{
+	margin-top:14px;
+	height: 170px;
+	/* background-color: #ccc; */
+}
+	/* 向导左侧 */
+.content .content_sub>.content_channel{
+	float:left;
+	width:234px;
+}
+.content .content_sub>.content_channel>ul{
+	width:234px;
+	height: 170px;
+	background:#5f5750;
+}
+.content .content_sub>.content_channel>.content_list01>li{
+	float:left;
+	text-align:center;
+	font-size:12px;
+	width: 33.3333%;
+}
+.content .content_sub>.content_channel>.content_list01>li>a{
+	display:block;
+	height:85px;
+	color: #fff;	
+	padding-top:8px;
+}
+.content .content_sub>.content_channel>.content_list01>li>a>i{
+	font-size:25px;
+}
+/* 向导右侧 */
+.content .content_sub>.content_list02{
+	float:left;
+	width:992px;
+}
+.content .content_sub>.content_list02>ul{
+	/* 注意ul一定要设置大小 */
+	width:100%;
+}
+.content .content_sub>.content_list02>ul>li{
+	display: block;
+	float: left;
+	width: 33.3333%;
+	/* 
+	1. 设置文本方向右侧
+	2. 设置图片宽度小于li标签宽度，制造等间距空格效果
+	 */
+	text-align:right;
+}
+.content .content_sub>.content_list02>ul>li>a{
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+.content .content_sub>.content_list02>ul>li>a>img{
+	width:316px;
+	height:170px;
+}
+.content .content_sub>.content_list_bottom{
+	height: 120px;
+}
+.content .content_sub>.content_list_bottom>a{
+	display: block;
+}
+.content .content_sub>.content_list_bottom>a>img{
+	width: 1226px;
+	height: 120px;
+	border: #404040 solid 1px;
+}
+
+
+/* 小米站点内容区域end */
