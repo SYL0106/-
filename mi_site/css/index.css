@@ -285,7 +285,8 @@ body{
 	/* 向导列表 */
 .content .content_sub{
 	margin-top:14px;
-	height: 170px;
+	height: 142px;
+	overflow:hidden;
 	/* background-color: #ccc; */
 }
 	/* 向导左侧 */
@@ -341,17 +342,20 @@ body{
 	width:316px;
 	height:170px;
 }
-.content .content_sub>.content_list_bottom{
-	height: 120px;
-}
-.content .content_sub>.content_list_bottom>a{
+/* 中间banner图 */
+
+.content.banner>a{
 	display: block;
+	width: 1226px;
+	height: 120px;
+	margin: 0 auto;
 }
-.content .content_sub>.content_list_bottom>a>img{
+.content .banner>a>img{
 	width: 1226px;
 	height: 120px;
 	border: #404040 solid 1px;
 }
+
 
 
 /* 小米站点内容区域end */
