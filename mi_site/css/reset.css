@@ -1,18 +1,14 @@
 body,p,ul,ol,dl,dt,h1,h2,h3,h4,h5,h6,dl,dt,dd{
-	/* 清除盒子内外边距 */
 	margin: 0;
 	padding: 0;
 }
 ul,ol{
-	/* 清除列表圆点 */
 	list-style: none;
 }
 input{
-	/* 去除边框以及高亮边框 */
 	border: none;
 	outline: none;
 }
 a{
-	/* 去除A标签下划线 */
 	text-decoration: none;
 }

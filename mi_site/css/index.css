@@ -1,20 +1,12 @@
 body{
-	font: 14px/1.5 Helvetica Neue,Helvetica,Arial,Microsoft Yahei,Hiragino Sans GB,Heiti SC,WenQuanYi Micro Hei,sans-serif;
-	color: #333;
-	min-width: 1226px;
+	font: 14px/1.5 "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif;
+         color: #333;
 }
-/* 小米顶部栏 */
-/* 1. topBar:设置样式高度40px;
-		 2. container:1226px宽度,设置居中
-		 3. topBar下方div设置不同的浮动样式(因为设置了固定告诉,所以未清除浮动)
-		 4. topBar .shop设置左边距,设置固定宽度,并将文本水平垂直居中
-		 5. topBar sapn设置边距以便合理分布内容项list,并设置合理颜色
-		 6. topBar a标签设置未行块元素,垂直居中,并设置合理颜色;且设置鼠标悬浮效果(字体颜色加深) */
+/*小米顶部css*/
 .topBar{
 	width: 100%;
 	height: 40px;
-	background-color: #333333;
-
+	background-color: #333;
 }
 .container{
 	width: 1226px;
@@ -24,413 +16,499 @@ body{
 .topBar .topBar_list{
 	float: left;
 }
-.topBar .login{
-	float: right;
-
-}
 .topBar .shop{
-	margin-left: 15px;
-	width: 120px;
 	float: right;
+	width: 120px;
+	margin-left: 15px;
 	height: 40px;
 	line-height: 40px;
 	text-align: center;
 	background-color: #424242;
 }
-.topBar .shop>a{
-	width: 130px;
-	height: 40px;
-	display: inline-block;
-	font-size: 12px;
-	/* line-height: 40px; */
-	/* margin-top: ; */
+.topBar .login{
 	float: right;
 }
-.topBar .shop>a>.iconfont{
-	display: inline-block;
-	line-height: 40px;
-	font-size:18px; 
-	color: #B0B0B0;
-}
-.topBar .shop>a>.gwc{
-	display: inline-block;
-	height: 35px;
-
-	line-height: 40px;
-	font-size:12px; 
-	color: #B0B0B0;
-}
 .topBar a{
-	color: #B0B0B0;
+	color: #b0b0b0;
 	font-size: 12px;
 	display: inline-block;
-	line-height: 40px;	
+	line-height: 40px;
+}
+.topBar .shop a{
+	width: 120px;
+	height: 40px;
+	display: inline-block;
 }
 .topBar a:hover{
 	color: #fff;
 }
-
-
 .topBar span{
 	color: #424242;
-	margin: 0 0.3em;
+	margin: 0 .5em;
 }
-/* 小米顶部栏end */
-
-/* 小米导航栏开始 */
-/* 
- 1. logo:注意A标签的大小，设置行块元素，以便可全部点击；
- 2. search-list:设置元素<li>的左浮动，以及动图位置
- 3. 设置右侧表单的大小，注意元素定位
- */
-.head .container{
+/*小米顶部end*/
+/*小米导航栏start*/
+.header{
 	height: 100px;
 }
-.head .site_logo{
+.header .site-logo{
 	float: left;
-	width: 56px;
-	margin: 22px;	
+	width: 62px;
+	margin-top: 22px;
 }
-.head .site_logo a{
+.header .site-logo a{
 	display: block;
 	width: 56px;
 	height: 56px;
 }
-.head .sitle_list{
+.header .site-list{
 	float: left;
+	width: 850px;
 }
-.head .sitle_list ul{
-	padding: 30px;
+.header .site-list>ul{
 	width: 820px;
 	height: 88px;
-	padding: 12px 0 0 5px;
+	padding: 12px 0 0 30px;
 	font-size: 16px;
 }
-.head .sitle_list>ul>li{
+.header .site-list>ul>li{
 	float: left;
 }
-.head .sitle_list>ul>li>a{
-	display: inline-block;
-	padding: 26px 9px 38px;
+.header .site-list>ul>li>a{
+	/*24px*/
+	display: block;
+	padding: 26px 10px 38px;
 	color: #333;
 }
-.head .sitle_list>ul>li>a:hover{
-	color: #FF6700;
+.header .site-list>ul>li>a:hover{
+	color: #ff6700;
 }
-.head .sitle_list .doodle{
-	position: relative;
-	z-index:3;
-	/* 同父现象：
-	1. 内容栏sapn标签也设置相对定位，父元素等级相同，使得导航栏左侧列表被覆盖；
-	*/
-}
-.head .sitle_list .doodle a{
+.header .site-list>ul .site-category>a{
 	padding: 0;
 }
-.head .sitle_list .doodle .site_shop_list{
-	width: 234px;
-	height: 460px;
-	background-color:  rgba(88,88,88,.6);
+.header .site-list>ul>li.site-category{
+	position: relative;
+	z-index: 3;
+}
+.header .site-list>ul>li.site-category .category-list{
 	position: absolute;
 	top: 88px;
-	left: -105px;
+	left: -92px;
+	width: 234px;
+	height: 460px;
+	background-color: rgba(0,0,0,0.6);
 }
-.head .sitle_list .doodle .site_shop_list>ul{
+
+.category-list>ul {
 	width: 234px;
 	height: 420px;
 	padding: 20px 0;
 }
-.head .sitle_list .doodle .site_shop_list>ul>li{
-	/* float: none; */
+.category-list>ul>li{
 	height: 42px;
-	position: relative;
 }
-.head .sitle_list .doodle .site_shop_list>ul>li>.iconfont{
-	font-size: 14px;
-}
-.head .sitle_list .doodle .site_shop_list>ul>li:hover{
-	background-color: #FF6700;
-}
-.head .sitle_list .doodle .site_shop_list>ul>li>span{
-	position: absolute;
-	top: 13px;
-	left: 189px;
-	font-size: 22px;
-	line-height: 22px;
-	color: #fff;
-}
-
-.head .sitle_list .doodle .site_shop_list>ul>li>a{
+.category-list>ul>li>a{
+	padding-left: 30px;
 	display: block;
 	height: 42px;
 	line-height: 42px;
-	padding-left: 30px;
 	font-size: 14px;
 	color: #fff;
-}
-
-.head .site_search{
-	float: right;
-	width: 250px;
-	margin-top: 25px;
 	position: relative;
+}
+.category-list>ul>li>a:hover{
+	background-color: #ff6700;
+}
+.category-list>ul>li>a>span{
+	position: absolute;
+	top: 12px;
+	right: 20px;
+	font-size: 16px;
+	line-height: 16px;
+}
 
+
+.header .site-search{
+	float: right;
+	width: 296px;
+	margin-top: 25px;
 }
-.head .site_search form{
-	height:50px;
-	width:250px;	
+.header .site-search form {
+	position: relative;
+	width: 296px;
+	height: 50px;
 }
-.head .site_search form .search_content{
-	float: left;
-	width: 174px;
+.header .site-search form  .search-text{
+	/*245px*/
+	width: 223px;
 	height: 48px;
 	border: 1px solid #e0e0e0;
 	font-size: 14px;
-	padding: 0 10px; 
-}
-.head .site_search form .search_btn{
-	font:iconfont;
-	/* width= 250-174-1*2*/
-	width:51px;
-	height:50px;
-	border: 1px solid #e0e0e0;
-	padding: 0;
+	padding: 0 10px;
 	float: left;
+}
+.header .site-search form  .search-btn{
 	margin-left: -1px;
+	float: left;
+	width: 50px;
+	height: 50px;
+	border: 1px solid #e0e0e0;
 }
-.head .site_search form .search_word{
+.header .site-search form  .search-word{
 	position: absolute;
-	font-size: 14px;
+	font-size: 12px;
 	top: 14px;
-	right: 80px;
+	right: 65px;
 }
-.head .site_search form .search_word a{
+.header .site-search form  .search-word a{
 	display: inline-block;
-	margin-left: 3px;
-	padding: 1px 5px;
+	margin-left: 5px;
+	padding: 0 5px;
 	background-color: #eee;
 	color: #757575;
 }
-.head .site_search form .search_word a:hover{
-	background-color: #FF6700;
+.header .site-search form  .search-word a:hover{
+	background-color: #ff6700;
+	color: #fff;
 }
-/* 小米导航栏end */
 
-/* 小米站点内容区域start */
-/* 
-	1. 照片大小设置
-	2. 侧边栏位置
- */
-.content .site_slider{
+/*小米导航栏end*/
+
+/*小米站点内容start*/
+.site-content .site-slider {
 	position: relative;
-	z-index:2;
-	widht:1226px;
-	height: 460px;
+	z-index: 2;
 }
-.content .site_slider>a img{
+.site-content .site-slider>a{
+	display: block;
 	width: 1226px;
 	height: 460px;
 }
-.content .site_slider>span{
+.site-content .site-slider>a img{
+	width: 1226px;
+}
+.site-content .site-slider>span{
 	position: absolute;
-	top:50%;
-	/* left: 0; */
-	width:40px;
+	width: 41px;
 	height: 69px;
-	margin-top:-35px;
-	background:url(../img/icon-slides.png) no-repeat 0 0;
-	cursor:pointer;
+	background: url(../images/icon-slides.png) no-repeat  0 0;
+	top: 50%;
+	margin-top: -35px;
+	cursor: pointer;
 }
-.content .site_slider>span.prev{
-	background-position: -83px 0;
-	left:234px;
-}
-.content .site_slider>span.prev:hover{
-	background-position: 0 0;
-	
-}
-.content .site_slider>span.next{
-	background-position: -124px 0;
-	right:0;
-}
-.content .site_slider>span.next:hover{
-	background-position: -41px 0;
-}
-.content .site_slider>.site_item{
-		position: absolute;
-		width: 200px;
-		height:30px;
-		/* background-color: green; */
-		bottom:20px;
-		right:30px;
-		line-height: 30px;
-		text-align:right;
-}
-.content .site_slider>.site_item>span{
-	width:6px;
-	height: 6px;
-	margin: 5px 3px;
-	cursor:pointer;
-	display:inline-block;
-	background-color: rgba(0,0,0,0.5);
-	border: solid 2px;
-	border-color: rgba(255,255,255,0.2)
-	;
-	border-radius: 6px;
-}
-.content .site_slider>.site_item>span:hover{
-	background-color: rgba(255,255,255,0.7);
-	border-color: rgba(0,0,0,0.6)
-}
-	/* 向导列表 */
-.content .content_sub{
-	margin-top:14px;
-	/* height: 142px; */
-	overflow:hidden;
-	/* background-color: #ccc; */
-}
-	/* 向导左侧 */
-.content .content_sub>.content_channel{
-	float:left;
-	width:234px;
-}
-.content .content_sub>.content_channel>ul{
-	width:234px;
-	height: 170px;
-	background:#5f5750;
-}
-.content .content_sub>.content_channel>.content_list01>li{
-	float:left;
-	text-align:center;
-	font-size:12px;
-	width: 33.3333%;
-}
-.content .content_sub>.content_channel>.content_list01>li>a{
-	display:block;
-	height:85px;
-	color: #fff;	
-	padding-top:8px;
-}
-.content .content_sub>.content_channel>.content_list01>li>a>i{
-	font-size:25px;
-}
-/* 向导右侧 */
-.content .content_sub>.content_list02{
-	float:left;
-	width:992px;
-}
-.content .content_sub>.content_list02>ul{
-	/* 注意ul一定要设置大小 */
-	width:100%;
-}
-.content .content_sub>.content_list02>ul>li{
-	display: block;
-	float: left;
-	width: 33.3333%;
-	/* 
-	1. 设置文本方向右侧
-	2. 设置图片宽度小于li标签宽度，制造等间距空格效果
-	 */
-	text-align:right;
-}
-.content .content_sub>.content_list02>ul>li>a{
-	display: block;
-	width: 100%;
-	height: 100%;
-}
-.content .content_sub>.content_list02>ul>li>a>img{
-	width:316px;
-	height:170px;
-}
-/* 中间banner图 */
+.site-content .site-slider span.prev{
+	background-position: -83px  0;
+	left: 234px;
 
-.content .banner>a{
-	display: block;
-	width: 1226px;
-	height: 120px;
-	margin: 0 auto;
 }
-.content .banner>a>img{
-	width: 1226px;
-	height: 120px;
-	border: #404040 solid 1px;
+.site-content .site-slider span.prev:hover{
+	background-position: 0  0;
 }
-.content .banner{
-	width: 1226px;
-	height: 120px;
-	margin-bottom: 30px;
-	
-}
-/* 小米站点内容区域end */
-
-
-/* 内容详情start */
-	/* 内容详情标题栏目 */
-.content_desc{
-	padding-top:30px;
-	background-color: #f5f5f5;
-}
-.content_desc .box_hd{
-	height:58px;
-	position:relative;
-}
-.content_desc .box_hd>h2{
-	font-size:22px;
-	/* 粗细:数值*/
-	font-weight: 200;
-	line-height:58px;
-	color:#333333;
-	display: inline-block;
-}
-.content_desc .box_hd>.more{
-	position: absolute;
-	top:0;
+.site-content .site-slider span.next{
+	background-position: -123px  0;
 	right: 0;
 }
-.content_desc .box_hd>.more>a{
-	font-size: 16px;
-	height: 12px;
-	color:#424242;
+.site-content .site-slider span.next:hover{
+	background-position: -41px  0;
 }
-.content_desc .box_hd>.more>a>i{
+.site-content .slider-item{
+	position: absolute;
+	width: 200px;
+	height: 30px;
+	line-height: 30px;
+	text-align: right;
+	bottom: 20px;
+	right: 40px;
+}
+.slider-item> a{
+	display: inline-block;
+	width: 6px;
+	height: 6px;
+	background-color: rgba(255,255,255,.4);
+	margin: 0 5px;
+	border-radius: 6px;
+	border: 2px solid #fff;
+	border-color: rgba(255,255,255,.3);
+}
+/*向导样式start*/
+.content-sub{
+	margin-top: 18px;
+	overflow: hidden;
+}
+.content-sub .content-channel{
+	float: left;
+	width: 234px;
+}
+.content-sub .content-channel ul{
+	background: #5f5750;
+	font-size: 12px;
+	text-align: center;
+}
+.content-sub .content-channel ul li{
+	float: left;
+	width: 33.33%;
+	height: 85px;
+}
+.content-sub .content-channel ul li a{
+	display: block;
+	padding-top: 18px;
+	font-size: 12px;
+	color: rgba(255,255,255,0.7);
+}
+.content-sub .content-channel ul li a i{
+	display: block;
+	font-size: 24px;
+}
+.content-sub .content-list{
+	float: left;
+	width: 992px;
+}
+.content-sub .content-list{
+	float: left;
+	width: 992px;
+}
+.content-sub .content-list ul {
+	width: 100%;
+}
+.content-sub .content-list ul  li{
+	float: left;
+	width: 33.33%;
+	text-align: right;
+}
+.content-sub .content-list ul  li a{
+	display: block;
+	height: 170px;
+}
+.content-sub .content-list ul  li a img{
+	width: 316px;
+	height: 170px;
+}
+/*向导样式end*/
+.content-banner{
+	margin-top: 18px;
+	margin-bottom: 30px;
+}
+.content-banner a{
+	display: block;
+	width: 1226px;
+	height: 120px
+}
+
+.content-banner a img{
+	width: 1226px;
+	height: 120px
+}
+/*小米站点内容end*/
+/*小米内容描述start*/
+.content-desc{
+	padding-top: 22px;
+	background-color: #f5f5f5;
+}
+/*内容详情标题start*/
+.content-desc .box-hd{
+	height: 58px;
+	position: relative;
+}
+.content-desc .box-hd h2{
+	font-size: 22px;
+	font-weight: 200;
+	line-height: 58px;
+	color: #333;
+}
+.content-desc .box-hd .more{
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+.content-desc .box-hd .more a{
+	font-size: 16px;
+	line-height: 58px;
+	color: #424242;
+}
+.content-desc .box-hd .more a i{
 	width: 12px;
-	height:12px;
-	padding:4px;
-	margin-left: 3px;
+	height: 12px;
+	padding: 4px;
+	margin-left: 8px;
 	border-radius: 12px;
 	background-color: #b0b0b0;
-	color: #FFF;
-	font-size:12px;
-	vertical-align:1px;
+	color: #fff;
+	font-size: 12px;
+	vertical-align:2px; 
 }
-.content_desc .box_hd>.more:hover a{
+.content-desc .box-hd .more:hover a{
 	color: #ff6700;
 }
-.content_desc .box_hd>.more:hover a i{
+.content-desc .box-hd .more:hover a i{
 	background-color: #ff6700;
 }
-	/* 内容 */
-.box_bd .row_l{
-	width:234px;
+/*内容详情标题end*/
+
+/*内容详情start*/
+.box-bd .row-l{
 	float: left;
+	width: 234px;
 }
-.box_bd .row_r{
-	width:990px;
+.box-bd .row-r{
 	float: left;
+	width: 992px;
 }
-.box_bd .row_l>a{
+.box-bd .row-l a{
 	display: block;
 	width: 100%;
 	height: 100%;
 }
-.box_bd .row_l>a>img{
-	width: 234px;
-	height:634px;
-}
 
-/* 内容详情end */
-.clearfix::after{
-	content: " ";
-	clear:both;
+.box-bd .row-l a img{
+	width: 234px;
+	height: 614px;
+}
+.box-bd .row-r ul{
+	overflow: hidden;
+}
+.box-bd .row-r ul li{
+	float: left;
+	height: 260px;
+	padding: 20px 0;
+	background-color: #fff;
+	width: 234px;
+	/*234*4 = 936 + 56 = 992px*/
+	position: relative;
+	margin-left: 14px;
+	margin-bottom: 14px;
+}
+.box-bd .row-r ul li .figure{
+	width: 160px;
+	height: 160px;
+	margin: 0 auto 18px;
+
+}
+.box-bd .row-r ul li .figure a{
 	display: block;
 }
+.box-bd .row-r ul li .figure a img{
+	width: 160px;
+	height: 160px;
+}
+.box-bd .row-r ul li .title{
+	font-size: 14px;
+	font-weight: 400;
+	text-align: center;
+}
+.box-bd .row-r ul li .title a{
+	color: #333;
+}
+.box-bd .row-r ul li .desc{
+	height: 18px;
+	font-size: 12px;
+	text-align: center;
+	color: #b0b0b0;
+	margin: 0 10px 10px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.box-bd .row-r ul li .price{
+	text-align: center;
+	color: #ff6700;
+}
+.box-bd .row-r ul li  .flag{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 64px;
+	height: 20px;
+	background-color: #83c44e;
+	text-align: center;
+	color: #fff;
+	left: 50%;
+	margin-left: -32px;
+}
+/*内容详情end*/
+/*小米内容描述end*/
+/*小米脚部样式start*/
+.footer .footer-service{
+	padding: 27px 0;
+	border-bottom: 1px solid #e0e0e0;
+}
+.footer .footer-service ul li{
+	float: left;
+	width: 19.8%;
+	height: 25px;
+	font-size: 16px;
+	line-height: 25px;
+	text-align: center;
+	border-left: 1px solid #e0e0e0;
+}
+.footer .footer-service ul li.first{
+	border-left: 0;
+}
+.footer .footer-service ul li a{
+	color: #616161;
+}
+.footer .footer-service ul li .iconfont{
+	font-size: 24px;
+	margin-right: 6px;
+	line-height: 24px;
+	vertical-align: -4px;
+}
+.footer .footer-links{
+	padding: 40px 0;
+}
+.footer .footer-links dl{
+	float: left;
+	width: 160px;
+	height: 112px;
+}
+.footer .footer-links dl dt{
+	margin-bottom: 26px;
+	font-size: 14px;
+	color: #424242;
+}
+.footer .footer-links dl dd{
+	font-size: 12px;
+	margin-top: 10px;
+	color: #757575;
+	cursor: pointer;
+}
+.footer .footer-links dl dd:hover{
+	color: #ff6700;
+}
+.footer .footer-links .col-contact{
+	float: right;
+	width: 251px;
+	height: 112px;
+	border-left: 1px solid #e0e0e0;
+	text-align: center;
+}
+.footer .footer-links .col-contact .iphone{
+	margin-bottom: 5px;
+	font-size: 22px;
+	color: #ff6700;
+}
+.footer .footer-links .col-contact p{
+	margin-bottom: 16px;
+	font-size: 12px;
+}
+.footer .footer-links .col-contact a{
+	display: inline-block;
+	width: 118px;
+	height: 28px;
+	border: 1px solid #ff6700;
+	color: #ff6700;
+	font-size: 12px;
+}
+.footer .footer-links .col-contact a:hover{
+	background-color: #ff6700;
+	color: #fff;
+}
+/*小米脚部样式end*/
+.clearfix::after{
+	content: '';
+	clear: both;
+	display: block;
+}
+
+
+
+
