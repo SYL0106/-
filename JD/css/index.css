@@ -1,0 +1,67 @@
+/* 京东中心栏目 */
+.w{
+	width: 1190px;
+	margin: 0 auto;
+}
+i{
+	border:solid 1px #FF0000;
+}
+/* 顶部栏 */
+.shortcut{
+	background-color: #e3e4e5;
+}
+.shortcut .w{
+	height: 30px;
+	font-size: 12px; 
+}
+.shortcut .w>.address{ 
+	display: inline-block;
+	height: 30px;
+	width: 58px; 
+	line-height: 30px;
+	color: #999;
+}
+.shortcut .w>.address>i{
+	font-size: 14px; 
+	color: #F10215;
+	margin-right: 4px;
+} 
+.shortcut .w ul{
+	display: block;
+	/* width: 718.112px; */
+	height: 30px; 
+	float: right;
+}
+.shortcut>.w>.fr .dt>.fta-1{
+	margin-right: 5px;
+}
+.shortcut>.w>.fr .dt .fta-2{
+	color: #F10215;
+}
+.shortcut .w ul li{
+	float: left;
+	height: 30px;
+	width: auto;
+	line-height: 30px;
+}
+.shortcut .w ul li>.dt{
+	padding: 0 7px;
+}
+.shortcut .w ul li>.dt>a{
+	display: inline-block;
+	height: 30px; 
+	color: #999; 	
+}
+.shortcut .w ul .firstli>.dt>a:hover{
+	color: #F10215;
+}
+.shortcut .w ul .spacer{
+	overflow: hidden;
+	width: 1px; 
+	height: 10px; 
+	margin: 11px 5px;
+	background-color: #ccc;
+}
+.shortcut .w ul .sc:hover{
+	background-color: #fff;
+}
