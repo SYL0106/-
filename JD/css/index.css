@@ -65,3 +65,59 @@ i{
 .shortcut .w ul .sc:hover{
 	background-color: #fff;
 }
+/* 顶部栏结束 */
+/* 搜索栏开始 */
+.header{
+	background:#fff;
+	border-bottom: 1px solid #ddd
+}
+.header .w{
+	height: 140px; 
+	position: relative;
+}
+/* logo */
+.header .w .logo{
+	position: absolute;
+	top: 10px;
+	left: 0;
+	width: 190px; 
+	height:  120px; 
+}
+.header .w .logo a{
+	display: inline-block;
+	width: 190px;
+	height: 120px;
+	vertical-align: middle;
+}
+.header .w .logo a img{
+	padding:15px 0 ;
+	width: 190px;
+	height: 90px;
+}
+/* 搜索栏 */
+.header .w .search{
+	height: 60px; 
+	width: 1160px;
+	position: relative;
+	z-index: 1;
+}
+.header .w .search .search-content{
+	height: 32px;
+	width: 546px; 
+	position: absolute;
+	left: 260px; 
+	top: 25px;
+	border: 1px solid #000000;
+}
+.header .w .search .sc{
+	    width: 425px;
+	    height: 26px;
+		border: 1px solid transparent;
+}
+.header .w .search .ss{
+	float: right;
+	display: inline-block;
+	width: 32px; 
+	height: 32px;
+}
+
