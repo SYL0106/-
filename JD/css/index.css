@@ -225,7 +225,7 @@ i{
 .treasure{
 	position: absolute;
 	right: 0;
-	bottom: 0;
+	bottom: 5px;
 	width: 190px;
 	height: 120px;
 }
@@ -238,6 +238,183 @@ i{
 	width: 190px;
 	height: 120px;
 }
+/* 搜索栏结束 */
+
+/* 导航栏开始 */
+.fs{
+	margin-bottom: 30px;
+}
+.fs .w{
+	height: 480px; 
+	background-color: #f4f4f4;
+}
+.fs .w>.d-items{
+	float: left;
+	width: 190px; 
+	height: 480px; 
+	margin-right: 10px;
+}
+.fs .w>.d-items>.d-itemss{
+	width: 190px;
+	height: 470px; 
+}
+.fs .w>.d-items>.d-itemss>.JS_navCtn{
+	width: 190px; 
+	height: 450px; 
+	padding: 10px 0; 
+	color: #636363;
+	background-color: #fefefe;
+	margin-top: 10px;
+}
+.fs .w>.d-items>.d-itemss>.JS_navCtn li{
+	height: 25px;
+	padding-left: 18px; 
+	
+}
+.fs .w>.d-items>.d-itemss>.JS_navCtn li a{
+	line-height: 25px;
+	font-size: 14px; 
+	color: #333; 
+	transition: color 0.2s ease;
+}
+.fs .w>.d-items>.d-itemss>.JS_navCtn li a:hover{
+	color: #E1251B;
+}
+.fs .w>.d-items>.d-itemss>.JS_navCtn li span{
+	font-size: 12px; 
+	padding: 0 ;
+}
+/* 轮播图 */
+/* width :
+w:1190px
+d-items:480px
+*/
+.fs .w .focus{
+	width: 790px;
+	height: 480px;
+	padding: 10px 0;
+	float: left;
+	overflow: hidden;
+}
+.fs .w .focus .fp{
+	float: left;
+	width: 590px;
+	height: 470px; 
+	margin-right: 10px;
+}
+.fs .w .focus>.fp a{
+	display: block;
+	width: 590px; 
+	height: 470px; 
+}
+.fs .w .focus>.fp a img{
+	display: block;
+	width: 590px; 
+	height: 470px; 
+}
+/* width:
+ 700px-600px
+ */
+.fs .w .focus>.fpp{
+	/* float: right; */
+	width: 190px;
+	height: 470px;
+	overflow: hidden;
+}
+.fs .w .focus>.fpp ul{
+	display: block;
+	width: 190px;
+}
+.fs .w .focus>.fpp ul li{
+	display: block;
+	width: 190px;
+	height: 150px;
+	margin-bottom: 10px;
+}
+.fs .w .focus>.fpp ul a{
+	display: inline-block;
+	width: 190px; 
+	height: 150px;
+}
+.fs .w .focus>.fpp ul a img{
+	width: 190px;
+	height: 150px;
+}
+/* 登录选项 */
+.fs .rl{
+	float: right;
+	width: 190px; 
+	height: 480px;
+	background-color: #FFF;
+	margin-top: 10px;
+	position: relative;
+}
+.fs .rl .user{
+	width: 190px; 
+	height:35px;
+	padding-top: 67px;
+	position: relative;
+}
+.fs .rl .user a{
+	color: #666666;
+	font-size: 12px; 
+}
+.fs .rl .user .logo{
+	display: block;
+	width: 40px; 
+	height: 40px; 
+	position: absolute;
+	top:14px;
+	left: 13px;
+}
+.fs .rl .user .logo img{
+	width: 40px;
+	height: 40px; 
+	border: 2px solid #fff;
+	border-radius: 20px;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+.fs .rl .user .userlgin{
+	display: block;
+	width: auto;
+	height: auto;
+	position: absolute;
+	top: 14px; 
+	left: 73px;
+	transition: color 0.2s ease;
+}
+.fs .rl .user .userlgin a:hover{
+	color: #E1251B;
+}
+.fs .rl .user .user-profit{
+	text-align: center;
+	/* margin-top: 5px; */
+}
+.fs .rl .user .user-profit a{
+	display: inline-block;
+	width: 70px; 
+	height: 25px;
+	line-height: 25px;
+	border-radius: 13px;
+	margin: 0 5px; 
+}
+.fs .rl .user .user-profit .nuser{
+	background-color: #E1251B;
+	color: #fff; 
+}
+.fs .rl .user .user-profit .PLUS{
+	color: #E5D790; 
+	background-color: #363634;
+}
+.fs .rl .user:after{
+	position: absolute;
+	height: 1px; 
+	left: 15px; 
+	right: 15px; 
+	bottom: 0;
+	content: " ";
+	background: linear-gradient(270deg,white,#eeeeee,#eeeeee,white);
+	}
 
 
 
