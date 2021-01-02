@@ -38,4 +38,31 @@ console.log(a);
 // 数值超出Number.MAX_VALUE 返回Infinity:表示正无穷大 ; -Infinity 表示负无穷
 // NaN:Not a Number 
 // JS进行浮点运算可能得到一个不精确的结果，故不可使用JS激行精度较高的运算
-
+/*
+	数据类型
+*/
+ // var cars = new Array("Saab","Volvo","BWM")
+ var cars = ["Saab","Volvo","BWM"];
+ for(i=0;i<cars.length;i++)
+ {
+	 document.write(cars[i]+"<br>")
+ }
+var person = {
+    firstName : "John",
+    lastName  : "Doe",
+    age       : 50,
+    eyeColor  : "blue",
+	fullName  : function()
+	{
+		return this.firstName+" "+this.lastName;
+	}
+};
+// document.write(person.firstName)
+ // document.write(person.firstName)
+ document.write(person.fullName);
+ //
+ function myFunction(name)
+ {
+	 return name + name;
+ };
+ 
