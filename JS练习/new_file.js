@@ -61,8 +61,31 @@ var person = {
  // document.write(person.firstName)
  document.write(person.fullName);
  //
- function myFunction(name)
- {
-	 return name + name;
- };
+
  
+
+ var cars = ["BMW","Volvo","Saab","Ford"];
+ console.log(typeof(cars))
+ for(i=0;i< cars.length;i++){
+	 // console.log(i);
+	 console.log(cars[i])	 
+ }
+ // while循环
+ function myFunction(){
+ 	var x="",i=6;
+ 		do{
+ 			x=x + "该数字为 " + i + "<br>";
+ 		    i++;
+ 		}
+ 		while (i<5)  
+ 		document.getElementById("demo").innerHTML=x;
+ }
+// break语句练习
+ function bre(){
+	 var x = "";
+	 for(i=0;i<10;i++){
+		 if(i==3)break;
+		 x = x+"该数字为"+i+"<br>";		 
+	 }
+	 document.getElementById('demo').innerHTML = x;
+ }

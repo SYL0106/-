@@ -61,5 +61,59 @@
 				sendValue(re);
 			}
 		</script>
+		<button>time</button>
+		<button onclick="hello()">现在的时间是?</button>
+		<script type="text/javascript">
+			function dispalyDate(id){
+				document.getElementById(id).innerHTML=Date();
+			};
+			function hello(){
+				var x = "";
+				time = new Date().getHours();
+				if(time<10){
+					x = "good morninng";
+				}
+				else if(time>=10 && time<20){
+					x = "good day";
+				}
+				else{
+					x = "good afternoon"
+				}
+				document.getElementById("demo").innerHTML = x;
+				console.log(time)
+			}
+			function week(){
+				d = new Date().getDay()
+				x = ""
+				switch (d){				
+					case 1:
+						x = "今天是周1"
+						break;
+					case 2:
+						x = "今天是周2"
+						break;
+					case 3:
+						x = "今天是周3"
+						break;
+					case 4:
+						x = "今天是周4"
+						break;
+					case 5:
+						x = "今天是周5"
+						break;
+					case 6:
+						x = "今天是周6"
+						break;
+					default:
+						x = "(0.0)"
+						break;
+				}
+				document.getElementById("demo").innerHTML=x;
+			}
+		</script>		
+		<button type="button" onclick="week()">今天时周几</button>		
+		<button type="button" onclick="myFunction()">循环语句</button>
+		<button type="button" onclick="bre()">break</button>
+		<p id="demo"></p>
 	</body>
 </html>
