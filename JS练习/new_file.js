@@ -89,3 +89,13 @@ var person = {
 	 }
 	 document.getElementById('demo').innerHTML = x;
  }
+function con(){
+	var x = " ";
+	for(i=0;i<10;i++){
+		if(i%2==0){
+			continue
+		}
+		x = x+"该数字为"+i+"<br>";
+		document.getElementById('demo').innerHTML = x;	
+	}
+}
