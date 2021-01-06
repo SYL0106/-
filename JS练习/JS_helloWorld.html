@@ -143,6 +143,56 @@
 					console.log(txt[i]);
 				}
 			}
+			str = "abc123"
+			console.log(str)
+			/*
+			/./:匹配任意字符串
+			\w : 任意字母数字下划线
+			\W : 除了下划线的特殊字符
+			\s : 空格
+			\S ：除了空格
+			\b : 单词边界
+			\B ：除了单词边界
+			\d : 任意数字/0-9/
+			\D ：除了数字/^0-9/
+			*/
+			
+			var reg = /./;
+			console.log(reg.test(str))
+			reg = /\./
+			console.log(reg.test(str))
+			reg = /\w/
+			console.log(reg.test(str))
+			reg = /\W/
+			console.log(reg.test(str))
+			console.log(reg.test("@$@$%$&"))
+			reg = /\d/
+			console.log(reg.test(str))
+			console.log(reg.test("@$@$%$&"))
+			reg = /\D/
+			console.log(reg.test("123"))
+			console.log(reg.test("@$@$%$&"))
+			reg = /\s/
+			console.log(reg.test("123"))
+			reg = /\S/
+			console.log(reg.test("123"))
+			//  创建一个reg 检查是否存在单词child
+			reg = /child/
+			console.log(reg.test("child"))
+			console.log(reg.test("children"))
+			reg = /\bchild\b/
+			console.log(reg.test("children")) 
+			var str = prompt("请输入你的用户名：")
+			console.log(str)
+			// /^\s*/: 匹配开头的（0-n）个空格；
+			// /^\s{10}/匹配开头的10个空格；
+			// str = str.replace(/^\s*/,"")
+			// 去除结尾的空格： /\s*$/
+			//去除前后所有的空格
+			str = str.replace(/^\s* | \s*$/g,"")  
+			// str = str.replace(/^\s+ | \s+$/g,""):
+			// “+”表示一个或者多个，“*”表示0个或者多个
+			console.log(str)
 		</script>
 	</body>
 </html>
