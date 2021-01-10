@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>
+			JS_hello world
+		</title>
+		<!-- <link rel="stylesheet" type="text/css" href=""/> -->
+		<script type="text/javascript" src="new_file.js"></script>
+	</head>
+	<body>
+		<!-- <button type="button" onclick="alert('讨厌,你点我干嘛~~')">点我一下</button>
+		<a href="javascript:alert('让你点,你就点~~')">你也点我一下</a> -->
+		<button type="button" onclick="alert(myFunction('abc'))">点我</button>
+		<table border="1" cellspacing="" cellpadding="">
+			<tr>
+				<th colspan="2">简单计算器</th>
+			</tr>
+			<tr>
+				<td>请输入第一个数字</td>
+				<td><input type="text" name="firstN" id="f1" value="" /></td>
+			</tr>
+			<tr>
+				<td>请输入第二个数字</td>
+				<td><input type="text" name="secondN" id="f2" value="" /></td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					&nbsp;
+					<button type="button" onclick="add()">+</button>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" rowspan="2">
+					<p id="result"></p>
+				</td>
+			</tr>
+		</table>
+		<script type="text/javascript">
+			var result_1;
+
+			function getFN() {
+				var firstNumber = document.getElementById("f1").value;
+				return firstNumber;
+			}
+
+			function getSN() {
+				var secondNumber = document.getElementById("f2").value;
+				return secondNumber;
+			}
+
+			function sendValue(result_1) {
+				var num = document.getElementById("result")
+				num.innerHTML = result_1;
+			}
+
+			function add() {
+				var a = getFN();
+				var b = getSN();				
+				re = Number(a) + Number(b);
+				sendValue(re);
+			}
+		</script>
+		<button>time</button>
+		<button onclick="hello()">现在的时间是?</button>
+		<script type="text/javascript">
+			function dispalyDate(id){
+				document.getElementById(id).innerHTML=Date();
+			};
+			function hello(){
+				var x = "";
+				time = new Date().getHours();
+				if(time<10){
+					x = "good morninng";
+				}
+				else if(time>=10 && time<20){
+					x = "good day";
+				}
+				else{
+					x = "good afternoon"
+				}
+				document.getElementById("demo").innerHTML = x;
+				console.log(time)
+			}
+			function week(){
+				d = new Date().getDay()
+				x = ""
+				switch (d){				
+					case 1:
+						x = "今天是周1"
+						break;
+					case 2:
+						x = "今天是周2"
+						break;
+					case 3:
+						x = "今天是周3"
+						break;
+					case 4:
+						x = "今天是周4"
+						break;
+					case 5:
+						x = "今天是周5"
+						break;
+					case 6:
+						x = "今天是周6"
+						break;
+					default:
+						x = "(0.0)"
+						break;
+				}
+				document.getElementById("demo").innerHTML=x;
+			}
+		</script>		
+		<button type="button" onclick="week()">今天时周几</button>		
+		<button type="button" onclick="myFunction()">循环语句</button>
+		<button type="button" onclick="bre()">break</button>
+		<button type="button" onclick="con()">con</button>
+		<p id="demo"></p>
+		<p>正则表达式</p>
+		<p>依据正则表达式拆分字符</p>
+		<p id="demo-gre">a1b2c3d4e5f6</p>
+		<button type="button" onclick="gre()">拆分字符</button>
+		<p>正则表达式将字符串中合适的字母筛选出来</p>
+		<button type="button" onclick="tqz()">筛选字符</button>
+		<p id="demo-gree"></p>
+		<script type="text/javascript">
+			function gre(){
+				var txt = document.getElementById("demo-gre").innerHTML
+				txt = txt.split(/[A-Z]/i)
+				for(i=0;i<txt.length;i++){
+					console.log(txt[i]);
+				}				
+			}
+			function tqz(){
+				var txt = document.getElementById("demo-gre").innerHTML
+				txt = txt.match(/[a-z]/g);
+				/*
+				默认只会返回第一个符合要求的内容
+				可以设置全局匹配模式/[a-z]/g
+				查询的结果返回的是数组
+				*/
+				for(i=0;i<txt.length;i++){
+					console.log(txt[i]);
+				}
+			}
+			str = "abc123"
+			console.log(str)
+			/*
+			/./:匹配任意字符串
+			\w : 任意字母数字下划线
+			\W : 除了下划线的特殊字符
+			\s : 空格
+			\S ：除了空格
+			\b : 单词边界
+			\B ：除了单词边界
+			\d : 任意数字/0-9/
+			\D ：除了数字/^0-9/
+			*/
+			
+			var reg = /./;
+			console.log(reg.test(str))
+			reg = /\./
+			console.log(reg.test(str))
+			reg = /\w/
+			console.log(reg.test(str))
+			reg = /\W/
+			console.log(reg.test(str))
+			console.log(reg.test("@$@$%$&"))
+			reg = /\d/
+			console.log(reg.test(str))
+			console.log(reg.test("@$@$%$&"))
+			reg = /\D/
+			console.log(reg.test("123"))
+			console.log(reg.test("@$@$%$&"))
+			reg = /\s/
+			console.log(reg.test("123"))
+			reg = /\S/
+			console.log(reg.test("123"))
+			//  创建一个reg 检查是否存在单词child
+			reg = /child/
+			console.log(reg.test("child"))
+			console.log(reg.test("children"))
+			reg = /\bchild\b/
+			console.log(reg.test("children")) 
+			var str = prompt("请输入你的用户名：")
+			console.log(str)
+			// /^\s*/: 匹配开头的（0-n）个空格；
+			// /^\s{10}/匹配开头的10个空格；
+			// str = str.replace(/^\s*/,"")
+			// 去除结尾的空格： /\s*$/
+			//去除前后所有的空格
+			str = str.replace(/^\s* | \s*$/g,"")  
+			// str = str.replace(/^\s+ | \s+$/g,""):
+			// “”表示一个或者多个，“*”表示0个或者多个
+			console.log(str)
+		</script>
+	</body>
+</html>

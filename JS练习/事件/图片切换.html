@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>切图</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			.outer {
+				background-color: greenyellow;
+				text-align: center;
+				width: 500px;
+				margin: 10px auto;
+
+			}
+
+			.outer img {
+				margin-top: 10px;
+				width: 450px;
+				height: 450px;
+			}
+
+			.outer>#btn {
+				text-align: center;
+				padding: 5px 0 10px 0;
+			}
+
+			.outer>#btn button {
+				padding: 3px;
+			}
+		</style>
+	</head>
+	<script type="text/javascript">
+		window.onload = function() {
+			var img_lis = [
+				".img/1581550269604.jpg",
+				"./img/1581552057058.jpg",
+				"./img/IMG_20200208_183243_polarr.jpg",
+				"./img/IMG_20200213_074242.jpg",
+				"./img/扣头发_背景纯色.jpg",
+				"./img/猫咪_毛发抠图.jpg"
+			];
+			var img = document.getElementById("img");
+			// 当前图片显示索引
+			var index = 0;
+			img.src=img_lis[index];
+			console.log(img);
+			var btn01 = document.getElementById("btn01");
+			btn01.onclick = function() {	
+				index--;
+				if(index<0)
+				index = img_lis.length-1 ;
+				img.src=img_lis[index];
+				console.log(index);
+			};
+			var btn02 = document.getElementById("btn02");
+			btn02.onclick = function() {
+				index++;
+				if(index>img_lis.length-1)
+				index = 0;
+				img.src=img_lis[index];
+				console.log(index);
+			};
+
+		};
+	</script>
+	<body>
+		<div class="outer">
+			<img id="img" src="./img/1581550269604.jpg" alt="">
+			<div id="btn">
+				<button id="btn01">上一张</button>
+				<button id="btn02">下一张</button>
+			</div>
+		</div>
+	</body>
+</html>
