@@ -47,6 +47,16 @@
 		</style>
 		<script type="text/javascript">
 			window.onload = function() {
+				/**
+				 * 为按钮创建一个单击响应函数
+				 * function(idStr,fun)
+				 * idStr:按钮ID
+				 * fun:回调函数
+				 * */
+				function myClick(idStr , fun){
+					var btn = document.getElementById(idStr);
+					btn.onclick = fun;
+				};
 				var btn01 = document.getElementById("btn01");
 				btn01.onclick = function() {
 					var bj = document.getElementById("bj")
@@ -107,8 +117,49 @@
 					var las = phone.lastChild;
 					console.log(las.innerHTML);
 					las = phone.lastElementChild
-					console.log(las.innerHTML)
+					console.log(las.innerHTML)					
 				};
+				// ————————————————————tn06返回#bj的父节点——————————————————————————————————								
+				myClick("btn06",function(){
+					var bj = document.getElementById("bj");
+					var pn = bj.parentNode;
+					/**
+					 * innerHTML
+					 * innerText:只返回元素内的TEXT（文本信息，不返回代码信息），
+					 * 			 会自动将HTML的标签去除
+					 * */
+					// alert(pn.innerHTML);
+					alert(pn.innerText);
+				})
+			 // ————————————————————tn07返回#bj的父节点——————————————————————————————————								
+			 myClick("btn07",function(){
+				 var wp = document.getElementById("wp");
+				 /**
+				  * previousSibling:获取紧邻的上一个同级结点，也可能获取空格； 结点
+				  * previousElementSibling:获取紧邻的上一个同级结点，无空格； 元素
+				  * nextSibling:
+				  * nextElementSibling:
+				  * */
+				 var wp = wp.previousElementSibling;
+				 alert(wp);
+			 });
+			 // ————————————————————tn08更改#username的value属性值——————————————————————————————————		
+			 myClick("btn08" , function(){
+				 var usn = document.getElementById("username");
+				 usn.value = "i love you";
+			 });
+			 // ————————————————————tn09获取#bj的文本属性值——————————————————————————————————		
+			myClick("btn09",function(){
+				var bj = document.getElementById("bj");
+				alert(bj.innerText);
+				bj.innerText = "bjbjbjbjbjj";								
+				/**
+				 * nodevalue:文本结点的内容就是nodevalue
+				 * 
+				 * */
+				alert(bj.firstChild.nodeValue);
+				bj.firstChild.nodeValue="asdhjkfgakhsdgflajkgdsf";
+			});
 			};
 		</script>
 	</head>
@@ -132,8 +183,7 @@
 					</ul>
 					<p>你手机的操作系统是？</p>
 					<ul id="phone">
-						<li id="ios">IOS</li>
-						<li id="an">Android</li>
+						<li id="ios">IOS</li><li id="and">Android</li>
 						<li id="wp"> Windows Phone</li>
 					</ul>
 				</div>
@@ -141,6 +191,11 @@
 					性别：
 					<input name="gender" type="radio" value="male" />male
 					<input name="gender" type="radio" value="female" />female
+					<br>
+					<br>
+					name:
+					<input type="text" name="name" id="username" value="abcde" />
+					<br>
 				</div>
 
 			</div>
@@ -153,7 +208,7 @@
 				<button id="btn06">返回#bj的父节点</button>
 				<button id="btn07">返回#an的前一个父节点</button>
 				<button id="btn08">返回username的vlaue属性</button>
-				<button id="btn09">设置username的vlaue属性</button>
+				<button id="btn09">更改#bj的文本属性值</button>
 				<button id="btn10">返回#bj的文本值</button>
 			</div>
 		</div>
