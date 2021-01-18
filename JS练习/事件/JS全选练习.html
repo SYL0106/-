@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>
+			JS全选练习
+		</title>
+		<script type="text/javascript">
+			window.onload = function() {
+				// 1. #checkAllBtn 
+				var items = document.getElementsByName("items");
+				var checkAllBtn = document.getElementById("checkAllBtn");
+				checkAllBtn.onclick = function() {
+					for (var i = 0; i < items.length; i++) {
+						items[i].checked = true;
+					}
+				};
+				var checkNoBtn = document.getElementById("checkNoBtn");
+				checkNoBtn.onclick = function() {
+					for (var i = 0; i < items.length; i++) {
+						items[i].checked = false;
+					}
+				};
+				var checkRevBtn = document.getElementById("checkRevBtn");
+				checkRevBtn.onclick = function() {
+					for (var i = 0; i < items.length; i++) {
+						items[i].checked = !items[i].checked;
+					}
+				};
+				// 提交喜欢的运动信息
+				var sendBtn = document.getElementById("sendBtn");
+				sendBtn.onclick = function() {
+					var text = ""
+					for (var i = 0; i < items.length; i++) {
+						if (items[i].checked == true) {
+							text =text + items[i].value + "\n";
+						} 
+						else {
+							continue;
+						}
+					}
+					if(text!=""){
+						alert(text);
+					}
+					else
+					{
+						alert("请选择您喜欢的运动哦~~~")
+					}
+					
+				};
+
+			}
+		</script>
+	</head>
+	<body>
+		<form method="post" action="">
+			<p>你爱好的运动是？<input type="checkbox" id="checkAllBox">全选/全不选</p>
+			<p>
+				<input type="checkbox" name="items" value="足球">足球
+				<input type="checkbox" name="items" value="篮球">篮球
+				<input type="checkbox" name="items" value="羽毛球">羽毛球
+				<input type="checkbox" name="items" value="乒乓球">乒乓球
+			</p>
+			<input type="button" name="" id="checkAllBtn" value="全选" />
+			<input type="button" name="" id="checkNoBtn" value="全不选" />
+			<input type="button" name="" id="checkRevBtn" value="反 选" />
+			<input type="button" name="" id="sendBtn" value="提 交" />
+		</form>
+	</body>
+</html>
