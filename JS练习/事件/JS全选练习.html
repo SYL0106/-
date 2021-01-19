@@ -5,18 +5,25 @@
 		<title>
 			JS全选练习
 		</title>
+		<style type="text/css">
+			#checkAllbox {
+				display: inline-block;
+			}
+		</style>
 		<script type="text/javascript">
 			window.onload = function() {
 				// 1. #checkAllBtn 
 				var items = document.getElementsByName("items");
 				var checkAllBtn = document.getElementById("checkAllBtn");
 				checkAllBtn.onclick = function() {
+					checkAllbox_ipt.checked = true;
 					for (var i = 0; i < items.length; i++) {
 						items[i].checked = true;
 					}
 				};
 				var checkNoBtn = document.getElementById("checkNoBtn");
 				checkNoBtn.onclick = function() {
+					checkAllbox_ipt.checked = false;
 					for (var i = 0; i < items.length; i++) {
 						items[i].checked = false;
 					}
@@ -33,28 +40,45 @@
 					var text = ""
 					for (var i = 0; i < items.length; i++) {
 						if (items[i].checked == true) {
-							text =text + items[i].value + "\n";
-						} 
-						else {
+							text = text + items[i].value + "\n";
+						} else {
 							continue;
 						}
 					}
-					if(text!=""){
+					if (text != "") {
 						alert(text);
-					}
-					else
-					{
+					} else {
 						alert("请选择您喜欢的运动哦~~~")
 					}
-					
+
+				};
+				// 全选或者全不全
+				var checkAllbox_ipt = document.getElementById("checkAllbox_ipt");
+				checkAllbox_ipt.onclick = function() {
+					for (var i = 0; i < items.length; i++) {
+						items[i].checked = checkAllbox_ipt.checked;
+					}
 				};
 
+				// 自动全选
+				for (var i = 0; i < items.length; i++) {					
+					items[i].onclick = function() {
+						checkAllbox_ipt.checked = true;
+						for (var j = 0; j < items.length; j++) {
+							if (!items[j].checked) {
+								checkAllbox_ipt.checked = false;
+							}
+						}
+					}
+				}
 			}
 		</script>
 	</head>
 	<body>
 		<form method="post" action="">
-			<p>你爱好的运动是？<input type="checkbox" id="checkAllBox">全选/全不选</p>
+			你爱好的运动是？
+			<div id="checkAllbox"><input type="checkbox" id="checkAllbox_ipt">全选/全不选</p>
+			</div>
 			<p>
 				<input type="checkbox" name="items" value="足球">足球
 				<input type="checkbox" name="items" value="篮球">篮球
