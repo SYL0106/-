@@ -30,8 +30,16 @@
 				};
 				var checkRevBtn = document.getElementById("checkRevBtn");
 				checkRevBtn.onclick = function() {
-					for (var i = 0; i < items.length; i++) {
+					checkAllbox_ipt.checked = true;
+					for (var i = 0; i < items.length; i++) {						
 						items[i].checked = !items[i].checked;
+						if (!items[i].checked) {
+							checkAllbox_ipt.checked = false;
+						}
+					}
+
+					for (var j = 0; j < items.length; j++) {
+
 					}
 				};
 				// 提交喜欢的运动信息
@@ -61,12 +69,13 @@
 				};
 
 				// 自动全选
-				for (var i = 0; i < items.length; i++) {					
+				for (var i = 0; i < items.length; i++) {
 					items[i].onclick = function() {
 						checkAllbox_ipt.checked = true;
 						for (var j = 0; j < items.length; j++) {
 							if (!items[j].checked) {
 								checkAllbox_ipt.checked = false;
+								break;
 							}
 						}
 					}
