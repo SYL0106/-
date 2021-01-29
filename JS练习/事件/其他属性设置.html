@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>其他属性设置</title>
+		<style>
+			#box1 {
+						background-color: red;
+						height: 100px;
+						width: 100px;
+						padding: 10px;
+						border: solid yellow 10px ;
+					}
+			#box02{
+				padding: 100px;  
+				background-color: #bfa;
+				
+			}
+			#box4{
+				width: 200px;
+				height: 300px; 
+				background-color: #bfa;
+				overflow: auto;
+			}
+			#box5{
+				width: 450px; height: 600px;
+				background-color: yellow;				
+			}
+				</style>
+		<script type="text/javascript">
+			window.onload = function() {
+				var btn01 = document.getElementById("btn01");
+				var box1 = document.getElementById("box1");
+				var box4 = document.getElementById("box4");
+
+				btn01.onclick = function() {
+					/* client:客户端
+					clientHeight  
+					clientWidth : 返回具体属性值的大小，可以直接进行计算,包括内容区以及内边距（padding）
+					上述属性是只读属性，不可修改
+					 */
+					// alert(box1.clientWidth);
+
+					/*
+					offsetHeight : 返回元素高度
+					offsetWidth : 返回元素的整个宽度
+					- 返回整个元素的大小，包括内容去以及边框
+					*/
+					// alert(box1.offsetHeight);
+
+					/*
+					offsetParent : 可以获取当前元素的定位父元素(绝对定位、想对定位)
+					*/
+					// alert(box1.offsetParent.id);
+					
+					/*
+					offsetLeft : 当前元素相对于其定位元素（offsetParent）的水平偏移量
+					offsetTop : 当前元素相对于其定位元素的垂直偏移量
+					*/ 
+					// alert(box1.offsetLeft)
+					
+					
+					/*
+						scrollWidth:
+						scrollheight:
+					*/ 
+					// alert(box4.scrollHeight);
+					
+					/*
+					scrollLeft : 返回元素左边缘与视图之间的偏移量(水平滚动条滚动的距离)
+					scrollTop :
+					
+					*/ 
+					// alert(box4.clientHeight) //283
+					// alert(box4.scrollHeight) //600
+					
+					alert(box4.scrollHeight - box4.scrollTop)
+
+
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<button id="btn01">点我一下</button>
+		<br>
+		<br>
+		<div id="box4">
+			<div id="box5">
+				
+			</div>
+		</div>
+		<br>
+		<br>
+		<div id="box03">
+			<div id="box02" style="position: relative;">
+				<div id="box1">
+
+				</div>
+			</div>
+		</div>
+
+	</body>
+</html>
