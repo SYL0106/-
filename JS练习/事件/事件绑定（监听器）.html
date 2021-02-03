@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>事件的绑定（监听器）</title>
+		<script type="text/javascript">
+			window.onload = function(){
+				btn01 = document.getElementById("btn01");
+				/*
+				addEventListener（）：
+				- 通过此方法也可以为事件绑定单击响应函数；
+				- 参数
+				  1. 事件的字符串（“click”）
+				  2. 回调函数
+				  3. 是否在捕获阶段触发事件，需要一个布尔值，一般都传false
+				
+				*/ 
+				// btn01.addEventListener("click",function(){alert("1")},false);
+				// btn01.addEventListener("click",function(){alert("2")},false);
+				
+				btn01.attachEvent("onclick",function(){alert("1");},false)
+				btn01.attachEvent("onclick",function(){alert("2");},false)
+			}
+		</script>
+	</head>
+	<body>
+		<button type="button" id="btn01">~~~~</button>
+	</body>
+</html>
