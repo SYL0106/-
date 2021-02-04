@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#outer{
+				width: 200px;
+				height: 200px;
+				background: red;
+			}
+			#inner{
+				width: 100px;
+				height: 100px;
+				background: blue;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="outer">
+			<div id="inner"></div>
+		</div>
+		<script type="text/javascript">
+			var outer = document.getElementById("outer");
+			var inner = document.getElementById("inner");
+			function foo(){
+				console.log("inner");
+			}
+			function bar(){
+				console.log("111inner");
+			}
+			function aa(){
+				console.log("outer");
+			}
+			//同时添加多个相同的事件，事件处理函数依次，不会覆盖
+			//inner.addEventListener("click",foo,false);
+			//inner.addEventListener("click",bar,false);
+			//支持捕获
+			inner.addEventListener("click",foo,true);
+			outer.addEventListener("click",aa,true);
+			//inner.removeEventListener("click",foo);
+			//console.log([]==[]);
+			
+			/*inner.attachEvent("onclick",foo);
+			inner.detachEvent("onclick",foo);*/
+	
+			
+		</script>
+	</body>
+</html>
