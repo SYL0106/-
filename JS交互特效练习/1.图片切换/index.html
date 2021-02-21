@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>图片切换</title>
+		<style type="text/css">
+			#flower {
+				width: 200px;
+				height: 200px;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function() {
+				var flower = document.getElementById("flower");
+				var prevBtn = document.getElementById("prev");
+				var nextBtn = document.getElementById("next");
+				var minIndex = 1,
+					maxIndex = 5,
+					currentIndex = minIndex;
+				prevBtn.onclick = function() {
+					if(currentIndex<=minIndex){
+						currentIndex = maxIndex;
+						console.log(currentIndex);
+						flower.setAttribute("src", `img/image0${currentIndex}.jpg`);
+					}
+					else{
+						currentIndex--;
+						console.log(currentIndex);
+						flower.setAttribute("src", `img/image0${currentIndex}.jpg`);
+					}					
+				}
+				nextBtn.onclick = function() {
+					if (currentIndex >= maxIndex) {
+						currentIndex = minIndex;
+						console.log(currentIndex);
+						flower.setAttribute("src", `img/image0${currentIndex}.jpg`);
+					} else {
+						currentIndex++;
+						console.log(currentIndex);
+						// src = "img/image0"+currentIndex+".jpg"
+						// console.log(src);
+						// flower.setAttribute("src",src);
+						flower.setAttribute("src", `img/image0${currentIndex}.jpg`);
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<img src="img/image01.jpg" id="flower">
+
+		<br>
+		<br>
+		<button type="button" id="prev">上一张</button>
+		<button type="button" id="next">下一张</button>
+	</body>
+</html>
