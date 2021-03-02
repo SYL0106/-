@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>4.关闭小广告</title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+
+			#qe_code {
+				width: 180px;
+				height: 180px;
+				position: relative;
+				margin: 100px auto;
+
+			}
+
+			#code {
+				width: 160px;
+				height: 160px;
+				position: absolute;
+				right: 0;
+			}
+
+			#close {
+				width: 18px;
+				height: 18px;
+				line-height: 18px;
+				text-align: center;
+				border: 1px solid #e0e0e0e0;
+				position: absolute;
+				cursor: pointer;
+				color: #666;
+			}
+		</style>
+		<script type="text/javascript">
+			/**
+			 * 1. 控制模块消失事件属性 .style.display = none;
+			 * 
+			 * */
+			window.onload = function(){
+				var close = document.getElementById("close");
+				var qe_code = document.getElementById("qe_code");
+				close.onclick = function(){
+					qe_code.style.display = "none";
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="qe_code">
+			<span id="close">X</span>
+			<img src="img/TB.png" id="code">
+
+		</div>
+	</body>
+</html>

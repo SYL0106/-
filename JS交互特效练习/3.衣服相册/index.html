@@ -4,16 +4,17 @@
 		<meta charset="utf-8" />
 		<title>衣服相册</title>
 		<style type="text/css">
-			#photo img{
+			#photo img {
 				width: 300px;
 				height: 300px;
 				margin: 10px 0 -10px 40px;
 			}
-			ul{
+
+			ul {
 				list-style: none;
-				overflow: hidden;
 			}
-			ul li{
+
+			ul li {
 				float: left;
 				width: 50px;
 				height: 50px;
@@ -21,30 +22,51 @@
 				margin-top: 20px;
 				border: 2px solid white;
 			}
-			ul li.active{
+
+			ul li.active {
 				border-color: red;
 			}
-			ul li img{
+
+			ul li img {
 				height: 50px;
 			}
 		</style>
 		<script type="text/javascript">
-			window.onload =function(){
-				var
+			/**
+			 * 1. 获取事件源 鼠标悬浮事件onmuseover\获取元素属性值getAttribute\设置属性值setAttribute
+			 * 2. DOM事件 this.parentNode* */
+			window.onload = function() {
+				var bigphoto = document.getElementById("bigphoto");
+				var smallImg = document.getElementsByClassName("smallImg");
+				for (var i = 0; i < smallImg.length; i++) {
+					smallImg[i].onmouseover = function() {
+						//鼠标悬浮之前，清空类名
+						console.log(i);
+						for (var j = 0; j < smallImg.length; j++) {
+							smallImg[j].parentNode.parentNode.setAttribute('class', '');
+						}
+						//给鼠标悬浮的img标签的父标签添加类名
+						this.parentNode.parentNode.setAttribute('class', 'active');
+						//为大图更改图片路径
+						var smallImgSrc = this.getAttribute('src');
+						// console.log(smallImgSrc);
+						bigphoto.setAttribute('src', smallImgSrc);
+					}
+				}
 			}
 		</script>
 	</head>
 	<body>
 		<div id="photo">
-			<img src="img/img01.jpeg" alt="衣服图片">
+			<img id="bigphoto" src="img/img01.jpeg" alt="衣服图片">
 		</div>
 		<div class="album">
 			<ul>
-				<li class="active"><a href="#"><img src="img/img01.jpeg" width="50" class = "smallImg"></a></li>
-				<li><a href="#"><img src="img/img02.jpeg" width="50" class = "smallImg"></li>
-				<li><a href="#"><img src="img/img03.jpeg" width="50" class = "smallImg"></li>
-				<li><a href="#"><img src="img/img04.jpeg" width="50" class = "smallImg"></li>
-				<li><a href="#"><img src="img/img05.jpeg" width="50" class = "smallImg"></li>
+				<li class="active"><a href="#"><img src="img/img01.jpeg" width="50" class="smallImg"></a></li>
+				<li><a href="#"><img src="img/img02.jpeg" width="50" class="smallImg"></li>
+				<li><a href="#"><img src="img/img03.jpeg" width="50" class="smallImg"></li>
+				<li><a href="#"><img src="img/img04.jpeg" width="50" class="smallImg"></li>
+				<li><a href="#"><img src="img/img05.jpeg" width="50" class="smallImg"></li>
 			</ul>
 		</div>
 	</body>
