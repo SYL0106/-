@@ -22,15 +22,63 @@
 				
 			}
 		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+			
+			   //1. 封装获取id变量的函数
+			   
+			   function $(id){
+				   return typeof(id)==='string' ? document.getElementById(id) : null;
+			   };
+			   
+			   var items = document.getElementsByClassName("items");
+			   for(var i=0;i<items.length;i++){
+				   var item = items[i];
+				   item.index = i+1;
+				   console.log(item.index);
+				   item.onmouseover = function(){
+					   
+					   $("box").style.background = "url(img/img0"+this.index+".jpg) no-repeat";
+					   // $("box").style.background = 'url(`img/img0${item.index}`.jpg) no-repeat';
+				   }
+			   }
+			   /*
+				item1.onmouseover = function(){
+					box.style.background = "url(img/img01.jpg) no-repeat";
+				}
+				item2.onmouseover = function(){
+					box.style.background = "url(img/img02.jpg) no-repeat";
+				}
+				item3.onmouseover = function(){
+					box.style.background = "url(img/img03.jpg) no-repeat";
+				}
+				item4.onmouseover = function(){
+					box.style.background = "url(img/img04.jpg) no-repeat";
+				}
+				item5.onmouseover = function(){
+					box.style.background = "url(img/img05.jpg) no-repeat";
+				}
+				*/
+			   // 封装鼠标悬浮事件
+			  
+			   // 调用实现
+			   // changeBgcImg("item1","url(img/img01.jpg) no-repeat");
+			   // changeBgcImg("item2","url(img/img02.jpg) no-repeat");
+			   // changeBgcImg("item3","url(img/img03.jpg) no-repeat");
+			   // changeBgcImg("item4","url(img/img04.jpg) no-repeat");
+			   // changeBgcImg("item5","url(img/img05.jpg) no-repeat");
+			}
+			
+		</script>
 	</head>
 	<body>
 		<div id="box">
 			<ul>
-				<li><img src="img/pic01.jpg" ></li>
-				<li><img src="img/pic02.jpg" ></li>
-				<li><img src="img/pic03.jpg" ></li>
-				<li><img src="img/pic04.jpg" ></li>
-				<li><img src="img/pic05.jpg" ></li>
+				<li class="items"><img src="img/pic01.jpg" ></li>
+				<li class="items"><img src="img/pic02.jpg" ></li>
+				<li class="items"><img src="img/pic03.jpg" ></li>
+				<li class="items"><img src="img/pic04.jpg" ></li>
+				<li class="items"><img src="img/pic05.jpg" ></li>
 			</ul>
 		</div>
 	</body>
