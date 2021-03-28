@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>列表渲染</title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<h3>明星信息</h3>
+			<ul>
+				<li v-for="items in stars">{{items}}</li>
+			</ul>
+			<h3>学生信息</h3>
+			<ul>
+				<li v-for="item in students">
+					<h4>{{item.studentName}}</h4>
+					<p>{{item.age}}---学校{{item.school}}</p>
+
+				</li>
+			</ul>
+			<h3>学生信息(带索引)</h3>
+			<ul>
+				<li v-for="item,key in students">
+					<h4>序号：{{key}}--学生姓名{{item.studentName}}</h4>
+					<p>{{item.age}}---学校{{item.school}}</p>
+
+				</li>
+			</ul>
+			<h3>循环对象</h3>
+			<ul>
+				<li v-for="item,key in students[0]">{{key}}---{{item}}</li>
+			</ul>
+			<h3>列表渲染与条件选渲染混搭:偶数年龄的学生渲染出来</h3>
+			<ul>
+				<li v-for="item,index in students" v-if="item.age%2==0">
+					<h4>序号：{{index}}--学生姓名{{item.studentName}}</h4>
+					<p>{{item.age}}---学校{{item.school}}</p>
+
+				</li>
+			</ul>
+		</div>
+		<script>
+			let app = new Vue({
+				el:"#app",
+				data:{
+					stars:["蔡徐坤","张碧晨","糖果超甜","李晨","鹿晗","华晨宇","沈腾"],
+					students:[
+						{
+							studentName:"小明",
+							age:"16",
+							school:"清华"						
+						},
+						{
+							studentName:"小黑",
+							age:"17",
+							school:"北大"						
+						},
+						{
+							studentName:"小红",
+							age:"18",
+							school:"山大"						
+						},
+						{
+							studentName:"下拉",
+							age:"15",
+							school:"清华"						
+						},
+						{
+							studentName:"小王",
+							age:"14",
+							school:"MIT"						
+						},
+					]
+				},
+			})
+		</script>
+<!-- 测试key值的作用 -->
+		<div id="app_1">
+			<div v-if="isLogin" class="login">
+				<h3>登录</h3>
+				<input type="password" name="password" value="" key="login" />
+				<!-- <div id="username">
+					用户名：<input type="text" name="username" value="" />
+				</div>
+				<div id="password">
+					密码：<input type="password" name="password" value="" />
+				</div>
+				<button type="button">登录</button> -->
+			</div>
+			<div v-else class="register" >
+				<h3>注册</h3>
+				<input type="password" name="password" value="" key="register" />
+				<!-- <div id="username">
+					用户名：<input type="text" name="username" value="" />
+				</div>
+				<div id="password">
+					密码：<input type="password" name="password" value="" />
+				</div>
+				<button type="button">注册</button> -->
+			</div>
+			<button type="button" @click="togglepage">切换登录/注册</button>
+
+		</div>
+		<script type="text/javascript">
+			var app_1 = new Vue({
+				el: "#app_1",
+				data: {
+					isLogin: true
+				},
+				methods: {
+					togglepage: function(e) {
+						console.log(e)
+						this.isLogin = !this.isLogin;
+						console.log(this.isLogin)
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

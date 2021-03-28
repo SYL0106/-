@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			#panne{
+				width: 200px; 
+				height: 50px;
+				background-color: skyblue;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app_1">
+			{{message}}
+			<h1>{{title}}</h1>
+		</div>
+		<script type="text/javascript">
+			let app_1 = new Vue({
+				el: "#app_1",
+				data: {
+					message: "hello world",
+					title: "前端Vue框架"
+				}
+			})
+		</script>
+		<!-- view -->
+		<div id="app-2">
+			<h1>用户名：{{username}}</h1>
+			<h3 v-if="isVip">用户类型：VIP</h3>
+			<h3 v-else="isVip">用户类型:普通用户</h3>
+		</div>
+		<script type="text/javascript">
+			let app_2 = new Vue({
+				el: "#app-2",
+				data: {
+					username: "Tom",
+					isVip: false,
+					age: 24,
+				}
+			})
+		</script>
+
+		<div id="app-3">
+			<h1>用户名：{{username}}</h1>
+			<h3 v-if="age>=18">允许24小时登录</h3>
+			<h3 v-else-if="age>=14">允许12小时登录</h3>
+			<h3 v-else>允许4小时登录</h3>
+		</div>
+		<script type="text/javascript">
+			let app_3 = new Vue({
+				el: "#app-3",
+				data: {
+					username: "Tom",
+					isVip: false,
+					age: 24,
+				}
+			})
+		</script>
+		<div id="app-4">
+			<div v-show="isShow" id="panne">
+				hello Vue
+			</div>
+			<button type="button" @click="showpanne">切换显示内容</button>
+		</div>
+		<script type="text/javascript">
+			let app_4 = new Vue({
+				el: "#app-4",
+				data: {
+					isShow:true,
+				},
+				methods:{
+					showpanne:function(){
+						app_4.isShow = !app_4.isShow
+					}
+				}
+			})
+		</script>
+		<div id="app-5">
+			<!-- <h3 v-if="tab==1">首页</h3>
+			<h3 v-else-if="tab==2">新闻页</h3>
+			<h3 v-else="tab==3">个人中心</h3> -->
+			<h3 v-show="tab==1">首页</h3>
+			<h3 v-show="tab==2">新闻页</h3>
+			<h3 v-show="tab==3">个人中心</h3>
+			<!-- <button @click="sy">首页</button>
+			<button @click="xwy">新闻页</button>
+			<button @click="person">个人中心</button> -->
+			<button @click="tabchange" data-id="1">首页</button>
+			<button @click="tabchange" data-id="2">新闻页</button>
+			<button @click="tabchange" data-id="3">个人中心</button>
+		</div>
+		<script type="text/javascript">
+			let app_5 = new Vue({
+				el: "#app-5",
+				data: {
+					tab:1,
+				},
+				methods:{
+					// sy:function(){
+					// 	app_5.tab = 1
+					// },
+					// xwy:function(){
+					// 	app_5.tab = 2
+					// },
+					// person:function(){
+					// 	app_5.tab = 3
+					// }
+					tabchange:function(e){
+						// console.log(e)
+						this.tab = e.target.dataset.id
+					}
+				}
+			})
+		</script>
+	</body>
+</html>
