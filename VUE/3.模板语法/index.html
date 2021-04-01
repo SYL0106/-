@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>模板语法</title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			#login{
+				background: skyblue;
+			}
+			#register{
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<h3>{{msg}}</h3>
+			<!-- 一次性插入 -->
+			<h3 v-once>{{msg}}</h3>
+			<!-- 插入html -->
+			<h3 v-html="rawHtml">{{rawHtml}}</h3>
+			<!-- 修改属性内容 -->
+			<!-- <div v-bind:id="login"> -->
+			<div :id="idName">
+				<h1>登录</h1>
+			</div>
+			<!-- <button type="button" @click="togglePage"></button> -->
+			<!-- 表达式引用 -->
+			<h3>{{firstName+lastName}}</h3>
+			<h3>{{isVip?"欢迎Vip用户":"普通用户请充值"}}</h3>
+			<button @click="changeBg">改变背景颜色</button>
+		</div>
+		<script type="text/javascript">
+			// 一次性插入
+			let app = new Vue({
+				el:"#app",
+				data:{
+					msg:"hello Vue",
+					rawHtml:"<span>hello</span>",
+					idName:"login",
+					firstName:"张",
+					lastName:"三",
+					isVip:"true"
+				},
+				methods:{
+					togglePage:function(){
+						
+					},
+					changeBg:function(){						
+						document.body.style.background = "yellow";
+						var app = document.getElementById("app");
+						app.style.background = "blue";
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

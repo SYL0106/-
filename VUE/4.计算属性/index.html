@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>计算属性</title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<!-- 原属性 -->
+			<h1>{{firstNmae+lastName}}</h1>
+			<!-- 计算属性 -->
+			<h1>{{fullName}}</h1>
+			<!-- 显示一个单词的逆序 -->
+			<h1>{{word.split("").reverse().join("")}}</h1>
+			<h1>{{reverseWord}}</h1>
+			<!-- 循环偶数的内容 -->
+			<ul>
+				<li v-for="item,index in oddStudents">
+					<h3>{{item.studentName}}</h3>
+					<h4>{{item.age}}------{{item.school}}</h4>
+				</li>
+			</ul>
+			<!-- 侦听器的使用：监听数据变化的事件 -->
+			<h1>{{msg}}</h1>
+			<h4 v-for="item in students">{{item}}</h4>
+		</div>
+		<script type="text/javascript">
+			let app = new Vue({
+				el:"#app",
+				data:{
+					firstNmae:"张",
+					lastName:"大头",
+					word:"music",
+					students:[
+						{
+							studentName:"小明",
+							age:"16",
+							school:"清华"						
+						},
+						{
+							studentName:"小黑",
+							age:"17",
+							school:"北大"						
+						},
+						{
+							studentName:"小红",
+							age:"18",
+							school:"山大"						
+						},
+						{
+							studentName:"下拉",
+							age:"15",
+							school:"清华"						
+						},
+						{
+							studentName:"小王",
+							age:"14",
+							school:"MIT"						
+						}],
+						msg:"hello Vue!"
+				},
+				computed:{
+					fullName:function(){					
+						console.log(this)
+						// 只要内容不改变，结果就一直在缓存中
+						
+						// 会将计算的结果进行缓存
+						return this.firstNmae+this.lastName
+					},
+					reverseWord:function(){
+						return this.word.split("").reverse().join("")
+					},
+					oddStudents:function(){
+						return this.students.filter((item,i)=>{
+							return item.age%2==0
+						})
+					}
+				},
+				watch:{
+					// 监听器用多了导致性能下降
+					msg:function(val){
+						console.log("监听事件------{{msg}}")
+						console.log(val)
+					},
+					students:function(){
+						this.msg = "学生数列变化"
+					}
+				}
+			})
+		</script>
+	</body>
+</html>
