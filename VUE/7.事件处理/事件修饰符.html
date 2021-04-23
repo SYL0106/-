@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>7.3事件修饰符</title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<!-- stop:阻止冒泡事件  -->
+			<div class="btn" @click="clickParent()">
+				<button type="button" @click.stop="clickEvent($event)">123</button>
+			</div>
+			<!-- prevent:阻止默认事件 -->
+			<form action="" method="post">
+				<input type="text" name="username" id="" v-model="city" value="" @keydown.enter="searchWeather" />
+				<input @click.prevent="searchWeather" type="submit" value="提交"/>
+				
+			</form>
+			<div id="weather">
+				<h1>{{tmp}}</h1>
+				<h3>{{brief}}</h3>
+			</div>
+			<!-- self:自身触发的内容 -->
+			<!-- once: 只触发一次的事件-->
+			<button type="button" @click.once="onceClick">onceClick</button>
+			 <!-- 按键ctrl事件 -->
+			 <button type="button" @click.ctrl="ctrlEvent">ctr事件</button>
+			 <button type="button" @click.ctrl.exact="ctrlEvent">ctrl.exact事件</button>
+		</div>
+		<script type="text/javascript">
+			let app = new Vue({
+				el: "#app",
+				data: {
+					count: 0,
+					city:"广州",
+					tmp:"",
+					brief:"",
+				},
+				methods: {
+					clickEvent: function(event) {
+						console.log(event);
+					},
+					clickParent: function() {
+						console.log("clickParent");
+					},
+					searchWeather:async function(){
+						console.log("天气查询");
+						console.log(this.city);
+						let httpUrl = `https://www.tianqiapi.com/free/day?appid=38992497&appsecret=pfpm5ZnJ&city=${this.city}`;
+						let res = await fetch(httpUrl);
+						let result = await res.json();
+						console.log(result);
+						this.tmp = result.tem+"℃";
+						this.brief = result.wea;
+					},
+					onceClick:function(){
+						console.log("once");
+					},
+					ctrlEvent:function(){
+						alert("ctrlEvent");
+					}
+				}
+			})
+		</script>
+	</body>
+</html>
