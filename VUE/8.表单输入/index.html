@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>表单</title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<!-- 
+			  v-model 数据的双向绑定:
+			  绑定的变量相当于给了标签一个初值，但是随着标签事件的发生，变量的值也会随之改变
+			 -->
+			<h1>单行输入框</h1>
+			<input type="text" name="username" id="" v-model="username" value="" />
+			<p>{{username}}</p>
+			<h1>多行文本输入框</h1>
+			<textarea rows="" cols="" v-model="username">
+
+			 </textarea>
+			<h1>复选框:选择喜欢的水果</h1>
+			<span v-for="item in  fruits">
+				{{item}}
+				<input type="checkbox" name="fruit" v-model="checkedfruit" id="" :value="item"/>
+			</span>			
+			<p>{{checkedfruit}}</p>
+			
+			<h1>单选框:选择喜欢的水果</h1>
+			<span v-for="item in  fruits">
+				{{item}}
+				<input type="radio" name="fruit" v-model="radiocheckedfruit" id="" :value="item"/>
+			</span>			
+			<p>{{radiocheckedfruit}}</p>
+			<!-- 单选择框 -->
+			<h1>选择框:选择快递的城市</h1>
+			<select v-model="chooseCity">
+				<option disabled="disabled" value ="">请选择</option>
+				<option v-for="item in  citys" :value="item" >{{item}}</option>
+			</select>
+			<h3>选择的城市：{{chooseCity}}</h3>
+			<!-- 多选框 -->
+			<h1>选择框:选择喜欢的城市</h1>
+			<!-- 按住ctrl实现多选 -->
+			<select v-model="moreCity" multiple="multiple">
+				<option v-for="item in  citys" :value="item" >{{item}}</option>
+			</select>
+			<h3>选择的城市：{{moreCity}}</h3>
+			
+			<!-- 字符串类型转为数字:v-model.number -->
+			<h1>字符串类型转为数字</h1>
+			<input type="text" name="age" id="" value="" v-model.number="age" />
+			<!-- .lazy 提交时改变 -->
+			<h1>.lazy 提交时改变</h1>
+			<input type="text" name="age" id="" value="" v-model.number.lazy="age" />
+			
+			
+		</div>
+		<script type="text/javascript">
+			let app = new Vue({
+				el: "#app",
+				data: {
+					username:"小明",
+					fruits: ["apple","banana","orange"],
+					checkedfruit:[],
+					radiocheckedfruit:"",
+					citys:["北京","南京","上海","广州"],
+					chooseCity:"",
+					moreCity:[],
+					age:16,
+				},
+				watch:{
+					age:function(val){
+						console.log(val)
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

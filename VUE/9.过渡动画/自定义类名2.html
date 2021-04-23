@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>9.自定义类名</title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="css/animate.min.css"/>
+	</head>
+	<body>
+		<div id = "databinding">
+		<button v-on:click = "show = !show">点我</button>
+		<transition
+		    name="custom-classes-transition"
+		    enter-active-class="animate__backInUp"
+		    leave-active-class="animate__bounceOutRight"
+		>
+		    <p v-if="show">菜鸟教程 -- 学的不仅是技术，更是梦想！！！</p>
+		</transition>
+		</div>
+		<script type = "text/javascript">
+		new Vue({
+		    el: '#databinding',
+		    data: {
+		        show: true
+		    }
+		})
+		</script>
+	</body>
+</html>
