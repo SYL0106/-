@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>3.父组件与子组件</title>
+		<script type="text/javascript" src="js/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			{{msg}}
+
+			<cpn11></cpn11>
+		</div>
+		<tempalte id="cpn22">
+			<div>
+				<p>我是子组件</p>
+			</div>
+		</tempalte>
+		<script type="text/x-template" id="cpn11">
+			<div>
+				<p>我是父组件</p>
+				这是：<cpn22></cpn22>
+			</div>
+		</script>
+		<script type="text/javascript">
+			// 子组件
+			let cpn22 = Vue.extend({
+				template: "#cpn22"
+			})
+			let cpn11 = Vue.extend({
+				template: "#cpn11",
+				components: {
+					cpn22: cpn22
+				}
+			})
+
+
+
+			let app = new Vue({
+				el: "#app",
+				data: {
+					msg: "hello"
+				},
+				components: {
+					cpn22: cpn22,
+					cpn11: cpn11
+
+				}
+			})
+		</script>
+	</body>
+</html>

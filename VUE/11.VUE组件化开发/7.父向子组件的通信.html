@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>7.父向子组件进行通信</title>
+		<script type="text/javascript" src="js/vue.js">
+
+		</script>
+	</head>
+	<body>
+		<div id="app">
+			{{msg}}
+			<h1>组件01</h1>
+			<cpn :cmovies="movies" :cmsg="msg"></cpn>
+			<p>________________________________________________________________________________________</p>
+			<h1>组件02</h1>
+			<cpn :cmovies="movies" ></cpn>
+		</div>
+
+
+
+
+
+
+
+		<template id="cpn">
+			<div>
+				<h2>我是子组件的标题哈哈哈哈</h2>
+				<p>{{cmsg}}</p>
+				<p v-for="(item,index) in cmovies">{{index+1}}.{{item}}</p>
+			</div>
+		</template>
+		<script>
+			<!-- 父子组件的通信 -->
+			<!-- 自定义事件：emit Event -->
+			<!-- props:properties -->
+
+			const cpn = {
+				template: "#cpn",
+				// 父传子用props
+				data() {
+					return {}
+				},
+				// props:["cmovies","cmsg"]
+				
+				
+				// 可以进行类型限制，以及提供默认值,以及必传值
+				// props:{
+				// 	cmovies:Array,
+				// 	cmsg:String,
+				// }
+				
+				// 
+				props:{
+					cmsg:{
+						type:String,
+						default:"我是默认值hahhahahahahahah",
+						required:true
+					},
+					cmovies:{
+						type:Array,
+						
+						// default:[],						
+						default(){
+							return []
+						}
+					}
+				}
+			}
+			const app = new Vue({
+				el: "#app",
+				data: {
+					msg: "hello",
+					movies: ["人鬼情未了", "肖申克的救赎", "海尔兄弟"]
+				},
+				components: {
+					cpn
+				}
+			})
+		</script>
+
+	</body>
+</html>

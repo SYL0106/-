@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>5.组件的data</title>
+		<script type="text/javascript" src="js/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			{{msg}}
+			<cpn01></cpn01>
+		</div>
+		
+		
+		
+		<!-- 注意此处全局组件是不需要在cpmponent中声明的，直接调用即可 -->
+		<template id="cpn01">
+			<div>
+				<div>第五节的演示内容哈哈哈哈哈-父组件</div>
+				<cpn02></cpn02>
+			</div>
+		</template>
+		
+		<template id="cpn02">
+		<div id="cpn0201">
+			{{title}}
+		</div>
+		</template>
+		
+		
+		
+		<script type="text/javascript">
+			// 子组件
+			Vue.component("cpn02",{
+				template:"#cpn02",
+				data(){
+					return{
+						title:"我是子组件的标题哈哈哈哈"
+					}
+				}
+			})
+			
+			/*
+			注册组件实现父子组件关联，变量关联
+			*/
+			Vue.component('cpn01', {
+				template: "#cpn01",
+			})
+
+			
+			
+			let app = new Vue({
+				el: "#app",
+				data: {
+					msg: "hello,Vue实例ok啦"
+				},
+
+			})
+		</script>
+	</body>
+</html>
